@@ -2,6 +2,15 @@
 # -*- coding: utf-8 -*-
 
 # Dashcam video of driving around San Francisco
+import plotly.io as pio
+import plotly.express as px
+import numpy as np
+import math
+import torch
+import clip
+from PIL import Image
+import cv2
+from pytube import YouTube
 video_url = "https://www.youtube.com/watch?v=PGMu_Z89Ao8"
 
 # How much frames to skip
@@ -19,7 +28,6 @@ N = 120
 # Install torch 1.7.1 with GPU support
 # !pip install torch==1.7.1+cu101 torchvision==0.8.2+cu101 -f https://download.pytorch.org/whl/torch_stable.html
 
-from pytube import YouTube
 
 # Choose a video stream with resolution of 360p
 streams = YouTube(video_url).streams.filter(adaptive=True, subtype="mp4", resolution="360p", only_video=True)
@@ -33,8 +41,6 @@ print("Downloading...")
 streams[0].download(filename="video")
 print("Download completed.")
 
-import cv2
-from PIL import Image
 
 # The frame images will be stored in video_frames
 video_frames = []
@@ -60,16 +66,11 @@ while capture.isOpened():
 # Print some statistics
 print(f"Frames extracted: {len(video_frames)}")
 
-import clip
-import torch
 
 # Load the open CLIP model
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model, preprocess = clip.load("ViT-B/32", device=device)
 
-import math
-import numpy as np
-import torch
 
 # You can try tuning the batch size for very large videos, but it should usually be OK
 batch_size = 256
@@ -83,7 +84,7 @@ for i in range(batches):
   print(f"Processing batch {i+1}/{batches}")
 
   # Get the relevant frames
-  batch_frames = video_frames[i*batch_size : (i+1)*batch_size]
+  batch_frames = video_frames[i * batch_size : (i + 1) * batch_size]
 
   # Preprocess the images for the batch
   batch_preprocessed = torch.stack([preprocess(frame) for frame in batch_frames]).to(device)
@@ -99,9 +100,9 @@ for i in range(batches):
 # Print some stats
 print(f"Features: {video_features.shape}")
 
-import plotly.express as px
 
-import plotly.io as pio; pio.renderers.default='browser'
+pio.renderers.default = 'browser'
+
 
 def search_video(search_query, display_heatmap=True, display_results_count=3):
 
@@ -129,6 +130,7 @@ def search_video(search_query, display_heatmap=True, display_results_count=3):
   for frame_id in best_photo_idx:
     display(video_frames[frame_id])
     print()
+
 
 search_video("a fire truck")
 
