@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.6
+#!/usr/bin/env python-trace
 # -*- coding: utf-8 -*-
 
 video_url = "https://www.youtube.com/watch?v=qh_EEhXMfaA"
