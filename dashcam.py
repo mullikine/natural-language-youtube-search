@@ -122,7 +122,7 @@ def search_video(search_query, display_heatmap=True, display_results_count=3):
     fig.update_xaxes(showticklabels=False)
     fig.update_yaxes(showticklabels=False)
     fig.update_layout(margin=dict(l=0, r=0, b=0, t=0))
-    fig.show()
+    fig.show(renderer="browser")
     print()
 
   # Display the top 3 frames
