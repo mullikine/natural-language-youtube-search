@@ -103,6 +103,7 @@ print(f"Features: {video_features.shape}")
 
 pio.renderers.default = 'browser'
 
+from shanepy import *
 
 def search_video(search_query, display_heatmap=True, display_results_count=3):
 
@@ -128,6 +129,7 @@ def search_video(search_query, display_heatmap=True, display_results_count=3):
 
   # Display the top 3 frames
   for frame_id in best_photo_idx:
+    myembed(globals(), locals())
     display(video_frames[frame_id])
     print()
 
