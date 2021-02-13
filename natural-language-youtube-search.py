@@ -100,6 +100,8 @@ print(f"Features: {video_features.shape}")
 
 import plotly.express as px
 
+import plotly.io as pio; pio.renderers.default='browser'
+
 def search_video(search_query, display_heatmap=True, display_results_count=3):
 
   # Encode and normalize the search query using CLIP
