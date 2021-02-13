@@ -1,0 +1,34 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+N	dashcam.py	/^N = 120$/;"	v
+N	natural-language-youtube-search.py	/^N = 120$/;"	v
+batch_features	dashcam.py	/^    batch_features = model.encode_image(batch_preprocessed)$/;"	v
+batch_features	natural-language-youtube-search.py	/^    batch_features = model.encode_image(batch_preprocessed)$/;"	v
+batch_frames	dashcam.py	/^  batch_frames = video_frames[i*batch_size : (i+1)*batch_size]$/;"	v
+batch_frames	natural-language-youtube-search.py	/^  batch_frames = video_frames[i*batch_size : (i+1)*batch_size]$/;"	v
+batch_preprocessed	dashcam.py	/^  batch_preprocessed = torch.stack([preprocess(frame) for frame in batch_frames]).to(device)$/;"	v
+batch_preprocessed	natural-language-youtube-search.py	/^  batch_preprocessed = torch.stack([preprocess(frame) for frame in batch_frames]).to(device)$/;"	v
+batch_size	dashcam.py	/^batch_size = 256$/;"	v
+batch_size	natural-language-youtube-search.py	/^batch_size = 256$/;"	v
+batches	dashcam.py	/^batches = math.ceil(len(video_frames) \/ batch_size)$/;"	v
+batches	natural-language-youtube-search.py	/^batches = math.ceil(len(video_frames) \/ batch_size)$/;"	v
+capture	dashcam.py	/^capture = cv2.VideoCapture('video.mp4')$/;"	v
+capture	natural-language-youtube-search.py	/^capture = cv2.VideoCapture('video.mp4')$/;"	v
+current_frame	dashcam.py	/^current_frame = 0$/;"	v
+current_frame	natural-language-youtube-search.py	/^current_frame = 0$/;"	v
+device	dashcam.py	/^device = "cuda" if torch.cuda.is_available() else "cpu"$/;"	v
+device	natural-language-youtube-search.py	/^device = "cuda" if torch.cuda.is_available() else "cpu"$/;"	v
+search_video	dashcam.py	/^def search_video(search_query, display_heatmap=True, display_results_count=3):$/;"	f
+search_video	natural-language-youtube-search.py	/^def search_video(search_query, display_heatmap=True, display_results_count=3):$/;"	f
+streams	dashcam.py	/^streams = YouTube(video_url).streams.filter(adaptive=True, subtype="mp4", resolution="360p", only_video=True)$/;"	v
+streams	natural-language-youtube-search.py	/^streams = YouTube(video_url).streams.filter(adaptive=True, subtype="mp4", resolution="360p", only_video=True)$/;"	v
+video_features	dashcam.py	/^  video_features = torch.cat((video_features, batch_features))$/;"	v
+video_features	dashcam.py	/^video_features = torch.empty([0, 512], dtype=torch.float16).to(device)$/;"	v
+video_features	natural-language-youtube-search.py	/^  video_features = torch.cat((video_features, batch_features))$/;"	v
+video_features	natural-language-youtube-search.py	/^video_features = torch.empty([0, 512], dtype=torch.float16).to(device)$/;"	v
+video_frames	dashcam.py	/^video_frames = []$/;"	v
+video_frames	natural-language-youtube-search.py	/^video_frames = []$/;"	v
