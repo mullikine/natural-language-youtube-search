@@ -1,8 +1,6 @@
 #!/usr/bin/env python3.6
 # -*- coding: utf-8 -*-
 
-# Dashcam video of driving around San Francisco
-# video_url = "https://www.youtube.com/watch?v=PGMu_Z89Ao8"
 video_url = "https://www.youtube.com/watch?v=qh_EEhXMfaA"
 
 # How much frames to skip
