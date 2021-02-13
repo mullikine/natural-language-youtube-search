@@ -125,10 +125,10 @@ def search_video(search_query, display_heatmap=True, display_results_count=3):
     fig.update_layout(margin=dict(l=0, r=0, b=0, t=0))
     fig.show(renderer="png")
     print()
+  myembed(globals(), locals())
 
   # Display the top 3 frames
   for frame_id in best_photo_idx:
-    myembed(globals(), locals())
     display(video_frames[frame_id])
     print()
 
