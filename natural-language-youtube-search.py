@@ -8,6 +8,11 @@ video_url = (len(sys.argv) > 1 and sys.argv[1])
 if not video_url:
     exit(1)
 
+query = (len(sys.argv) > 2 and sys.argv[2])
+
+if not query:
+    exit(1)
+
 import re
 
 if re.match(r"^https?.*", video_url):
@@ -148,4 +153,4 @@ def search_video(search_query, display_heatmap=True, display_results_count=3):
     video_frames[frame_id].show()
     print()
 
-search_video("a stop sign")
+search_video(query)
