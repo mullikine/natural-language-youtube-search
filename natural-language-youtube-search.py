@@ -2,12 +2,15 @@
 # -*- coding: utf-8 -*-
 
 from os import path, link
+import sys
 
 video_url = (len(sys.argv) > 1 and sys.argv[1])
+if not video_url:
+    exit(1)
 
 import re
 
-if re.match(r"^https?+.*", video_url):
+if re.match(r"^https?.*", video_url):
     from pytube import YouTube
 
     # Choose a video stream with resolution of 360p
