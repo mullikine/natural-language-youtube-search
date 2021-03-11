@@ -1,7 +1,30 @@
 #!/usr/bin/env python-trace
 # -*- coding: utf-8 -*-
 
-video_url = "https://www.youtube.com/watch?v=qh_EEhXMfaA"
+from os import path, link
+
+video_url = (len(sys.argv) > 1 and sys.argv[1])
+
+import re
+
+if re.match(r"^https?+.*", video_url):
+    from pytube import YouTube
+
+    # Choose a video stream with resolution of 360p
+    streams = YouTube(video_url).streams.filter(adaptive=True, subtype="mp4", resolution="360p", only_video=True)
+
+    # Check if there is a valid stream
+    if len(streams) == 0:
+      raise "No suitable stream found for this YouTube video!"
+
+    # Download the video as video.mp4
+    print("Downloading...")
+    streams[0].download(filename="video")
+    print("Download completed.")
+elif path.isfile(video_url) and re.match(r".*\.mp4$", video_url):
+    link(video_url, 'video.mp4')
+else:
+    exit(1)
 
 # How much frames to skip
 N = 120
@@ -18,19 +41,6 @@ N = 120
 # Install torch 1.7.1 with GPU support
 # !pip install torch==1.7.1+cu101 torchvision==0.8.2+cu101 -f https://download.pytorch.org/whl/torch_stable.html
 
-from pytube import YouTube
-
-# Choose a video stream with resolution of 360p
-streams = YouTube(video_url).streams.filter(adaptive=True, subtype="mp4", resolution="360p", only_video=True)
-
-# Check if there is a valid stream
-if len(streams) == 0:
-  raise "No suitable stream found for this YouTube video!"
-
-# Download the video as video.mp4
-print("Downloading...")
-streams[0].download(filename="video")
-print("Download completed.")
 
 import cv2
 from PIL import Image
