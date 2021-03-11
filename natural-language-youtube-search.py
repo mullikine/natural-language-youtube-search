@@ -24,8 +24,11 @@ if re.match(r"^https?.*", video_url):
     print("Downloading...")
     streams[0].download(filename="video")
     print("Download completed.")
-elif path.isfile(video_url) and re.match(r".*\.mp4$", video_url):
-    link(video_url, 'video.mp4')
+    video_path = "video.mp4"
+elif path.isfile(video_url):
+    video_path = video_url
+# elif path.isfile(video_url) and re.match(r".*\.mp4$", video_url):
+    # link(video_url, 'video.mp4')
 else:
     exit(1)
 
@@ -52,7 +55,7 @@ from PIL import Image
 video_frames = []
 
 # Open the video file
-capture = cv2.VideoCapture('video.mp4')
+capture = cv2.VideoCapture(video_path)
 
 current_frame = 0
 while capture.isOpened():
