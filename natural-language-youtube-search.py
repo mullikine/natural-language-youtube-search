@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 # Dashcam video of driving around San Francisco
-video_url = "https://www.youtube.com/watch?v=PGMu_Z89Ao8"
+# video_url = "https://www.youtube.com/watch?v=PGMu_Z89Ao8"
+video_url = "https://www.youtube.com/watch?v=qh_EEhXMfaA"
 
 # How much frames to skip
 N = 120
@@ -128,18 +129,4 @@ def search_video(search_query, display_heatmap=True, display_results_count=3):
     display(video_frames[frame_id])
     print()
 
-search_video("a fire truck")
-
-search_video("road works")
-
-search_video("people crossing the street")
-
-search_video("the Embarcadero")
-
-search_video("waiting at the red light")
-
-search_video("green bike lane")
-
-search_video("a street with tram tracks")
-
-search_video("the Transamerica Pyramid")
+search_video("a stop sign")
